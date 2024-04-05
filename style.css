@@ -17,7 +17,6 @@ li {
 :root {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
-
     --light: #F9F9F9;
     --blue: #3C91E6;
     --light-blue: #CFE8FF;
@@ -29,6 +28,9 @@ li {
     --light-yellow: #FFF2C6;
     --orange: #FD7238;
     --light-orange: #FFE0D3;
+    --primary-color: #f90a39;
+    --text-color: #1d1d1d;
+    --bg-color: #f1f1fb;
 }
 
 html {
@@ -660,4 +662,197 @@ body {
     #content main .table-data .todo .todo-list {
         min-width: 420px;
     }
+}
+
+.custom-button {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 36px;
+    border-color: var(--blue);
+    background: var(--blue);
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+}
+
+.custom-button:hover {
+    background-color: darkblue;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: grey;
+}
+
+h1 {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+.calendar {
+    margin: auto;
+    width: 98%;
+    max-width: 380px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar nav {
+    display: flex;
+    align-items: center;
+}
+
+.calendar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendar ul li {
+    width: calc(100% / 7);
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+#prev,
+#next {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#prev::before,
+#next::before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    border-color: #ccc;
+}
+
+#next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#prev:hover::before,
+#next:hover::before {
+    border-color: #000;
+}
+
+.days {
+    font-weight: 600;
+}
+
+.dates li.today {
+    color: #fff;
+}
+
+.dates li.today::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.dates li.inactive {
+    color: #ccc;
 }
