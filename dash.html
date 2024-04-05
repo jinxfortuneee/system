@@ -122,10 +122,6 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="btn-download">
-                    <i class='bx bxs-cloud-download'></i>
-                    <span class="text">Download PDF</span>
-                </a>
             </div>
 
             <ul class="box-info">
@@ -152,27 +148,154 @@
                 </li>
             </ul>
 
+            <?php  /*------------------------------ CALENDAR ------------------------ */ ?>
+
 
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>EVENT CALENDAR</h3>
+                        <h3>CALENDAR</h3>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                        </thead>
-                        <tbody>
+                    <div class="calendar">
+                        <header>
+                            <h3></h3>
+                            <nav>
+                                <button id="prev"></button>
+                                <button id="next"></button>
+                            </nav>
+                        </header>
+                        <section>
+                            <ul class="days">
+                                <li>Sun</li>
+                                <li>Mon</li>
+                                <li>Tue</li>
+                                <li>Wed</li>
+                                <li>Thu</li>
+                                <li>Fri</li>
+                                <li>Sat</li>
+                            </ul>
+                            <ul class="dates"></ul>
+                        </section>
+                    </div>
+                    <script>
+                        const header = document.querySelector(".calendar h3");
+                        const dates = document.querySelector(".dates");
+                        const navs = document.querySelectorAll("#prev, #next");
 
-                        </tbody>
-                    </table>
+                        const months = [
+                            "January",
+                            "February",
+                            "March",
+                            "April",
+                            "May",
+                            "June",
+                            "July",
+                            "August",
+                            "September",
+                            "October",
+                            "November",
+                            "December",
+                        ];
+
+                        let date = new Date();
+                        let month = date.getMonth();
+                        let year = date.getFullYear();
+
+                        function renderCalendar() {
+                            const start = new Date(year, month, 1).getDay();
+                            const endDate = new Date(year, month + 1, 0).getDate();
+                            const end = new Date(year, month, endDate).getDay();
+                            const endDatePrev = new Date(year, month, 0).getDate();
+
+                            let datesHtml = "";
+
+                            for (let i = start; i > 0; i--) {
+                                datesHtml += `<li class="inactive">${endDatePrev - i + 1}</li>`;
+                            }
+
+                            for (let i = 1; i <= endDate; i++) {
+                                let className =
+                                    i === date.getDate() &&
+                                        month === new Date().getMonth() &&
+                                        year === new Date().getFullYear()
+                                        ? ' class="today"'
+                                        : "";
+                                datesHtml += `<li${className}>${i}</li>`;
+                            }
+
+                            for (let i = end; i < 6; i++) {
+                                datesHtml += `<li class="inactive">${i - end + 1}</li>`;
+                            }
+
+                            dates.innerHTML = datesHtml;
+                            header.textContent = `${months[month]} ${year}`;
+                        }
+
+                        navs.forEach((nav) => {
+                            nav.addEventListener("click", (e) => {
+                                const btnId = e.target.id;
+
+                                if (btnId === "prev" && month === 0) {
+                                    year--;
+                                    month = 11;
+                                } else if (btnId === "next" && month === 11) {
+                                    year++;
+                                    month = 0;
+                                } else {
+                                    month = btnId === "next" ? month + 1 : month - 1;
+                                }
+
+                                date = new Date(year, month, new Date().getDate());
+                                year = date.getFullYear();
+                                month = date.getMonth();
+
+                                renderCalendar();
+                            });
+                        });
+
+                        renderCalendar();
+                    </script>
+
+
+
+                    <?php  /*------------------------------ REMINDERS ------------------------ */ ?>
+
+
+
                 </div>
                 <div class="todo">
                     <div class="head">
                         <h3>REMINDERS</h3>
+                        <!-- Modal Trigger Button -->
+                        <button id="openModalBtn" class="custom-button">Add reminder</button>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <!-- Modal Content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <form action="add_reminder.php" method="post">
+                                    <input type="text" name="description" placeholder="Reminders">
+                                    <button type="submit" class="custom-button">Add Reminders</button>
+                                </form>
+                            </div>
+                        </div>
                         <i class='bx bx-plus'></i>
                         <i class='bx bx-filter'></i>
                     </div>
+                    <ul class="todo-list">
+                        <?php
+                        $con = new mysqli('localhost', 'root', '', 'system');
+                        $sql = "SELECT * FROM reminders";
+                        $result = $con->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<li>" . $row["description"] . " <button class='delete-btn' onclick='deleteReminder(" . $row["r_id"] . ")'>Delete</button></li>";
+                            }
+                        } else {
+                            echo "<li>No reminders found</li>";
+                        }
+                        ?>
+                        </li>
                 </div>
             </div>
         </main>
@@ -182,6 +305,40 @@
 
 
     <script src="script.js"></script>
+    <script>// Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Form Submission
+        document.getElementById("modalForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            modal.style.display = "none";
+        });
+    </script>
+
 </body>
+
 
 </html>
