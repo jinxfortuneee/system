@@ -7,8 +7,11 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css" media="screen">
+  
 
-    <title>SCHOOL MANAGEMENT SYSTEM</title>
+    <title>School Management System</title>
+
 </head>
 
 <body>
@@ -17,63 +20,63 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <i class='bx bxs-smile'></i>
-            <span class="text">ACLC </span>
+           <center><br/><br/>
+            <span class="text">ACLC College of Ormoc City, Inc.</span></center>
         </a>
         <ul class="side-menu top">
             <li class="active">
                 <a href="#">
-                    <i class='bx bxs-dashboard'></i>
+                    <i class='fas fa-tachometer-alt'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-shopping-bag-alt'></i>
-                    <span class="text">INSTRUCTOR</span>
+                    <i class='fas fa-user'></i>
+                    <span class="text">Instructor</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-doughnut-chart'></i>
-                    <span class="text">STUDENT</span>
+                    <i class='fas fa-user-graduate'></i>
+                    <span class="text">Student</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-message-dots'></i>
-                    <span class="text">SUBJECTS</span>
+                    <i class='fas fa-book'></i>
+                    <span class="text">Subjects</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">PROGRAMS</span>
+                    <i class='fas fa-book-open'></i>
+                    <span class="text">Programs</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">PERFORMANCE</span>
+                    <i class='fas fa-chart-line'></i>
+                    <span class="text">Performance</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">EVALUATION</span>
+                    <i class='fas fa-clipboard-check'></i>
+                    <span class="text">Evaluation</span>
                 </a>
             </li>
         </ul>
         <ul class="side-menu">
             <li>
                 <a href="#">
-                    <i class='bx bxs-cog'></i>
+                    <i class='fas fa-cog'></i>
                     <span class="text">Settings</span>
                 </a>
             </li>
             <li>
                 <a href="#" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
+                    <i class='fas fa-sign-out-alt'></i>
                     <span class="text">Logout</span>
                 </a>
             </li>
@@ -87,24 +90,24 @@
     <section id="content">
         <!-- NAVBAR -->
         <nav>
-            <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
-            <a href="#" class="profile">
-                <img src="img/people.png">
-            </a>
-        </nav>
+        
+    <form action="#">
+        <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <input type="checkbox" id="switch-mode" hidden>
+<label for="switch-mode" class="switch-mode"></label>
+
+    <a href="#" class="notification">
+        <i class="fas fa-bell"></i>
+        <span class="num">8</span>
+    </a>
+    <a href="#" class="profile">
+        <img src="img/profile.jpg" alt="Profile">
+    </a>
+</nav>
         <!-- NAVBAR -->
 
         <!-- MAIN -->
@@ -116,7 +119,7 @@
                         <li>
                             <a href="#">Dashboard</a>
                         </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li><i class='fas fa-chevron-right'></i></li>
                         <li>
                             <a class="active" href="#">Home</a>
                         </li>
@@ -126,21 +129,21 @@
 
             <ul class="box-info">
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
+                    <i class='fas fa-user-graduate'></i>
                     <span class="text">
                         <h3>1020</h3>
                         <p>Students</p>
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-group'></i>
+                    <i class='fas fa-user'></i>
                     <span class="text">
                         <h3>2834</h3>
                         <p>Instructor</p>
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-dollar-circle'></i>
+                    <i class='fas fa-book-open'></i>
                     <span class="text">
                         <h3>10</h3>
                         <p>Programs</p>

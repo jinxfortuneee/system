@@ -100,6 +100,7 @@ body {
 #sidebar .side-menu {
     width: 100%;
     margin-top: 48px;
+    
 }
 
 #sidebar .side-menu li {
@@ -108,6 +109,8 @@ body {
     margin-left: 6px;
     border-radius: 48px 0 0 48px;
     padding: 4px;
+    padding-left: 20px;
+    
 }
 
 #sidebar .side-menu li.active {
@@ -137,6 +140,7 @@ body {
     right: 0;
     box-shadow: 20px -20px 0 var(--grey);
     z-index: -1;
+    
 }
 
 #sidebar .side-menu li a {
@@ -150,6 +154,14 @@ body {
     color: var(--dark);
     white-space: nowrap;
     overflow-x: hidden;
+    padding-left: 20px;
+}
+#sidebar .side-menu li a i{
+    padding-right: 20px;
+}
+
+#sidebar .side-menu li a i span{
+    margin-left: 20px;
 }
 
 #sidebar .side-menu.top li.active a {
@@ -173,6 +185,7 @@ body {
     min-width: calc(60px - ((4px + 6px) * 2));
     display: flex;
     justify-content: center;
+    
 }
 
 /* SIDEBAR */
@@ -375,6 +388,8 @@ body {
     color: var(--dark);
 }
 
+
+
 #content main .head-title .left .breadcrumb li a {
     color: var(--dark-grey);
     pointer-events: none;
@@ -417,6 +432,31 @@ body {
     grid-gap: 24px;
 }
 
+#content main .box-info li i.fas.fa-user-graduate{
+    background-color:#CFE8FF;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#content main .box-info li i.fas.fa-user{
+    background-color:#ccf0a6;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    border-radius: 10px;
+    text-align: center;
+}
+#content main .box-info li i.fas.fa-book-open{
+    background-color:#f0a6bf;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    border-radius: 10px;
+    text-align: center;
+}
 #content main .box-info li .bx {
     width: 80px;
     height: 80px;
