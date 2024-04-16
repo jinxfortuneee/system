@@ -252,6 +252,8 @@
 </style>
 
 <body>
+    <!-- sidebar -->
+    <?php include('sidebar.php');?>
     <!-- Main -->
     <main class="main-container">
         <div class="main-title">

@@ -2,37 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="images/logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Grading System</title>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    </style>
+    <title>School Management System</title>
+
 </head>
 
 <body>
 
-
-    <form method="post">
-        <input type="text" class="form-control" id="user" name="user" placeholder="Enter User" autocomplete="off">
-
-        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
-        <button type="hidden" class="btn btn-default">Login</button>
-
-
-    </form>
-    <?php
-    include 'connect.php';
-    ?>
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="img/logo.png" alt="Logo">
+            <span class="logo-text">ACLC College of Ormoc City, Inc.<br>Lilia Ave., Cogon, Ormoc City</span>
+        </div>
+        <form action="#" class="login-form">
+            <h1>Login</h1>
+            <h5>School Management System</h5>
+            <br />
+            <div class="input-field">
+                <span class="material-icons account-icon">account_circle</span>
+                <input type="text" class="form-control" id="user" name="user" placeholder="Enter User"
+                    autocomplete="off" required>
+            </div>
+            <div class="input-field">
+                <span class="material-icons lock-icon">lock</span>
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password"
+                    required>
+                <span class="toggle-password material-icons" onclick="togglePasswordVisibility()">visibility</span>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
     </div>
-    </div>
 
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("pwd");
+            var eyeIcon = document.querySelector(".toggle-password");
+            if (passwordField.type === 'password') {
+                passwordField.type = "text";
+                eyeIcon.textContent = "visibility_off";
+            } else {
+                passwordField.type = "password";
+                eyeIcon.textContent = "visibility";
+            }
+        }
+    </script>
+</body>
 
 </html>
